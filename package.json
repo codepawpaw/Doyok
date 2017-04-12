@@ -6,6 +6,10 @@
   "scripts": {
     "test": "mocha"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jonathannatanaelsiahaan/Doyok.git"
+  },
   "keywords": [
     "json",
     "query",
@@ -16,5 +20,11 @@
     "filter"
   ],
   "author": "Jonathan Natanael Siahaan <jonathannael12@gmail.com>",
-  "license": "ISC"
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jonathannatanaelsiahaan/Doyok/blob/master/LICENSE"
+    }
+  ]
 }
+
