@@ -1,0 +1,20 @@
+{
+  "name": "doyok",
+  "version": "1.0.0",
+  "description": "Retrieves values from JSON for data binding. Using commands like sequelize.",
+  "main": "doyok.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "json",
+    "query",
+    "json",
+    "query",
+    "data",
+    "binding",
+    "filter"
+  ],
+  "author": "Jonathan Natanael Siahaan <jonathannael12@gmail.com>",
+  "license": "ISC"
+}
