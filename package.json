@@ -4,7 +4,8 @@
   "description": "Retrieves values from JSON for data binding. Using commands like sequelize.",
   "main": "doyok.js",
   "scripts": {
-    "test": "mocha"
+    "test": "nyc --reporter=html --reporter=text mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,8 @@
       "type": "MIT",
       "url": "https://github.com/jonathannatanaelsiahaan/Doyok/blob/master/LICENSE"
     }
-  ]
+  ],
+  "devDependencies": {
+    "nyc": "^10.2.0"
+  }
 }
-
