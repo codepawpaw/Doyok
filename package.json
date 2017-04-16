@@ -1,6 +1,6 @@
 {
   "name": "doyok",
-  "version": "1.2.0",
+  "version": "1.3.2",
   "description": "Retrieves values from JSON for data binding. Using commands like sequelize.",
   "main": "doyok.js",
   "scripts": {
@@ -27,7 +27,11 @@
       "url": "https://github.com/jonathannatanaelsiahaan/Doyok/blob/master/LICENSE"
     }
   ],
+  "dependencies": {
+    "q": "1.5.0"
+  },
   "devDependencies": {
-    "nyc": "^10.2.0"
+    "nyc": "^10.2.0",
+    "q": "1.5.0"
   }
 }
