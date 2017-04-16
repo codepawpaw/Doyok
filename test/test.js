@@ -510,3 +510,8 @@ describe('findAllTest', function() {
 		});
 	//});
 });
+
+
+describe('DeleteAllTest', function() {
+
+});
