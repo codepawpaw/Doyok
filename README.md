@@ -20,18 +20,29 @@ Will install the latest version of doyok (currently 1.0).
 var doyok = require('doyok');
 
 var json = [
+
    {
+   
    	   id: 1, name: 'Jonathan', age: 22
+   
    },
+   
    {
+   
    	   id: 2, name: 'Kevin', age: 20
    },
+   
    {
+   
        id: 2, name: 'Kevin', age: 20
    },
+   
    {
+   
        id: 3, name: 'Kevin', age: 10
+   
    },
+   
    {
        id: 4, name: 'Endah', age: 22
    }
