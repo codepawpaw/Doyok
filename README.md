@@ -44,81 +44,140 @@ var json = [
 ### Find
 
 var condition = {
+
   where: {
+  
     name: 'Kevin',
+    
     or: [
+      
       {
-        name: 'Sitta', age: 22
+        
+	name: 'Sitta', age: 22
+      
       },
+      
       {
-        id: 4, name: 'Endah'
+        
+	id: 4, name: 'Endah'
+      
       },
+      
       {
-        age: 22
+        
+	age: 22
+      
       }
+    
     ]
+  
   },
+  
   limit: 10,
+  
   offset: 0, 
+  
   order: {
+    
     name: 1,
+    
     age: 1
+  
   }
+
 };
 
 
 doyok.findAll(condition, json).then(function(result) {
+   
    console.log(result);                                                   
+
 });
 
 
 ### Delete
 
 var condition = {
+  
   where: {
+    
     name: 'Kevin',
+    
     or: [
+      
       {
-        name: 'Sitta', age: 22
+        
+	name: 'Sitta', age: 22
+      
       },
+      
       {
-        id: 4, name: 'Endah'
+        
+	id: 4, name: 'Endah'
+      
       },
+      
       {
-        age: 22
+        
+	age: 22
+      
       }
+    
     ]
+  
   }
+
 };
 
 doyok.deleteAll(condition, json).then(function(result) {
+   
    console.log(result);                                                   
+
 });
 
 
 ### Update
 
 var setter = {
+	
 	age: 30	
+
 };
 
 var condition = {
+  
   where: {
+    
     name: 'Kevin',
+    
     or: [
+      
       {
-        name: 'Sitta', age: 22
+        
+	name: 'Sitta', age: 22
+      
       },
+      
       {
-        id: 4, name: 'Endah'
+        
+	id: 4, name: 'Endah'
+      
       },
+      
       {
-        age: 22
+        
+	age: 22
+      
       }
+    
     ]
+  
   }
+
 };
 
 doyok.updateAll(condition, json).then(function(result) {
+   
    console.log(result);                                                   
+
 });
