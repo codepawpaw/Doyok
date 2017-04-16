@@ -15,8 +15,6 @@ Will install the latest version of doyok (currently 1.0).
 ## Example Usage
 
 
-### Find
-
 var doyok = require('doyok');
 
 var json = [
@@ -26,28 +24,24 @@ var json = [
    },
    
    {
-   
    	   id: 2, name: 'Kevin', age: 20
    },
    
    {
-   
        id: 2, name: 'Kevin', age: 20
    },
    
    {
-   
        id: 3, name: 'Kevin', age: 10
-   
    },
    
    {
-   
        id: 4, name: 'Endah', age: 22
-   
    }
 ];
 
+
+### Find
 
 var condition = {
   where: {
@@ -79,26 +73,6 @@ doyok.findAll(condition, json).then(function(result) {
 
 ### Delete
 
-var doyok = require('doyok');
-
-var json = [
-   {
-   	   id: 1, name: 'Jonathan', age: 22
-   },
-   {
-   	   id: 2, name: 'Kevin', age: 20
-   },
-   {
-       id: 2, name: 'Kevin', age: 20
-   },
-   {
-       id: 3, name: 'Kevin', age: 10
-   },
-   {
-       id: 4, name: 'Endah', age: 22
-   }
-];
-
 var condition = {
   where: {
     name: 'Kevin',
@@ -122,26 +96,6 @@ doyok.deleteAll(condition, json).then(function(result) {
 
 
 ### Update
-
-var doyok = require('doyok');
-
-var json = [
-   {
-   	   id: 1, name: 'Jonathan', age: 22
-   },
-   {
-   	   id: 2, name: 'Kevin', age: 20
-   },
-   {
-       id: 2, name: 'Kevin', age: 20
-   },
-   {
-       id: 3, name: 'Kevin', age: 10
-   },
-   {
-       id: 4, name: 'Endah', age: 22
-   }
-];
 
 var setter = {
 	age: 30	
