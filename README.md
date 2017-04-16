@@ -66,6 +66,7 @@ var condition = {
   }
 };
 
+
 doyok.findAll(condition, json).then(function(result) {
    console.log(result);                                                   
 });
