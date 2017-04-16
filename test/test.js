@@ -1,5 +1,4 @@
 var assert = require('assert');
-var expect = require('chai').expect;
 var doyok = require('../doyok.js');
 var utilities = require('../utilities.js');
 
@@ -513,5 +512,9 @@ describe('findAllTest', function() {
 
 
 describe('DeleteAllTest', function() {
+	describe('and condition', function() {
+		it('should return list of json by its and condition', function() {
 
+		});
+	});
 });
