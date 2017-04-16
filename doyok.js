@@ -341,7 +341,7 @@ var q = require('q');
 	};
 
 	// Return a list 
-	function findAll(params, object){
+	function findAllNotUsePromise(params, object){
 		var json = object;
 
 		var whereConditions = {};
@@ -362,7 +362,7 @@ var q = require('q');
 
 		return json;
 	};
-	exports.findAll = findAll;
+	exports.findAllNotUsePromise = findAllNotUsePromise;
 
 	doyok.deleteAll = function(params, object){
 		var qdef = q.defer();
