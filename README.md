@@ -97,43 +97,43 @@ Will install the latest version of doyok (currently 1.0).
 
 ### Delete
 
-var condition = {
-  
-  where: {
-    
-    name: 'Kevin',
-    
-    or: [
-      
-      {
-        
-	name: 'Sitta', age: 22
-      
-      },
-      
-      {
-        
-	id: 4, name: 'Endah'
-      
-      },
-      
-      {
-        
-	age: 22
-      
-      }
-    
-    ]
-  
-  }
+	var condition = {
 
-};
+	  where: {
 
-doyok.deleteAll(condition, json).then(function(result) {
-   
-   console.log(result);                                                   
+	    name: 'Kevin',
 
-});
+	    or: [
+
+	      {
+
+		name: 'Sitta', age: 22
+
+	      },
+
+	      {
+
+		id: 4, name: 'Endah'
+
+	      },
+
+	      {
+
+		age: 22
+
+	      }
+
+	    ]
+
+	  }
+
+	};
+
+	doyok.deleteAll(condition, json).then(function(result) {
+
+	   console.log(result);                                                   
+
+	});
 
 
 ### Update
