@@ -22,9 +22,7 @@ var doyok = require('doyok');
 var json = [
 
    {
-   
    	   id: 1, name: 'Jonathan', age: 22
-   
    },
    
    {
@@ -44,7 +42,9 @@ var json = [
    },
    
    {
+   
        id: 4, name: 'Endah', age: 22
+   
    }
 ];
 
