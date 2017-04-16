@@ -240,6 +240,7 @@ var q = require('q');
 				if(conditions[idx][key] == json[key]){
 					matched = true;
 				} else {
+					matched = false;
 					break;
 				}
 			}
@@ -313,16 +314,6 @@ var q = require('q');
 		return json;
 	};
 
-	function where(obj, attrs, first) {
-	    if (isEmpty(attrs)) return first ? void 0 : [];
-	    return doyok[first ? 'find' : 'filter'](obj, function(value) {
-	      for (var key in attrs) {
-	        if (attrs[key] !== value[key]) return false;
-	      }
-	      return true;
-	    });
-	};
-
 	// Return a list 
 	doyok.findAll = function(params, object){
 		var qdef = q.defer();
@@ -348,6 +339,30 @@ var q = require('q');
 
 		return (qdef.promise);
 	};
+
+	// Return a list 
+	function findAll(params, object){
+		var json = object;
+
+		var whereConditions = {};
+
+		if(params.hasOwnProperty('where')){
+	        for(var key in params.where){
+				whereConditions[key] = params.where[key];
+			}
+		}
+		
+		json = (!isEmpty(whereConditions)) ? findByCondition(json, whereConditions) : json
+
+		json = (params.hasOwnProperty('order')) ? sortByKeys(json, params['order']) : json
+
+		json = (params.hasOwnProperty('limit') && !params.hasOwnProperty('offset')) ? json.slice(0, params['limit']) : 
+		       (!params.hasOwnProperty('limit') && params.hasOwnProperty('offset')) ? json.slice(params['offset'], json.length) :
+		       (params.hasOwnProperty('limit') && params.hasOwnProperty('offset')) ? json.slice(params['offset'], params['offset'] + params['limit']) : json
+
+		return json;
+	};
+	exports.findAll = findAll;
 
 	doyok.deleteAll = function(params, object){
 		var qdef = q.defer();
