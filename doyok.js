@@ -272,10 +272,11 @@ var q = require('q');
 	};
 
 	function deleteByCondition(json, conditions){
-		for(var i = 0;i < json.length; i++){
-			var matched = false;
-	       	for(var key in conditions){ 
-				if (key == 'or'){
+		var result = [];
+		for(var i = 0;i < json.length; i++){ 
+		   var matched = false;
+	       for(var key in conditions){
+	       		if (key == 'or'){
 	       			if(or(json[i], conditions['or'])){
 	       				matched = true;
 	       				break;
@@ -283,11 +284,12 @@ var q = require('q');
 	       		} else {
 	       			matched = (json[i].hasOwnProperty(key) && json[i][key] ==  conditions[key]) ? true : false
 	       		}
-			}
-			if(matched) delete json[key];
+	       }
+	       if(!matched) result.push(json[i]);
+	       
 		}
 
-		return json;
+		return result;
 
 	};
 
@@ -376,12 +378,29 @@ var q = require('q');
 			}
 		}
 
-		if(!isEmpty(whereConditions)) json = deleteByCondition(json, whereConditions);
+		json = (!isEmpty(whereConditions)) ? deleteByCondition(json, whereConditions) : json
+		//if(!isEmpty(whereConditions)) json = deleteByCondition(json, whereConditions);
 
 		qdef.resolve(json);
 
 		return (qdef.promise);
 	};
+
+	function deleteAllNotUsePromise(params, object){
+		var json = object;
+		var whereConditions = {};
+
+		if(params.hasOwnProperty('where')){
+			for(var key in params.where){
+				whereConditions[key] = params.where[key];
+			}
+		}
+
+		json = (!isEmpty(whereConditions)) ? deleteByCondition(json, whereConditions) : json
+
+		return json;
+	};
+	exports.deleteAllNotUsePromise = deleteAllNotUsePromise;
 
 	doyok.updateAll = function(setter, params, object){
 		var qdef = q.defer();
@@ -401,6 +420,24 @@ var q = require('q');
 
 		return (qdef.promise);
 	};
+
+	function updateAllNotUsePromise(setter, params, object){
+		var json = object;
+
+		var whereConditions = {};
+
+		if(params.hasOwnProperty('where')){
+			for(var key in params.where){
+				whereConditions[key] = params.where[key];
+			}
+		}
+
+		if(!isEmpty(whereConditions)) json = updateByCondition(json, whereConditions, setter);
+
+
+		return json;
+	};
+	exports.updateAllNotUsePromise = updateAllNotUsePromise;
 
 	// Extend a given object with all the properties in passed-in object(s).
   	doyok.extend = function(obj) {
