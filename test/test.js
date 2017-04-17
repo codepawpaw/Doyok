@@ -21,9 +21,7 @@ var json = [
 ];
 
 describe('findAllTest', function() {
-	//describe('with condition', function() {
-
-		describe('and condition', function() {
+	describe('and condition', function() {
 			it('should return list of json by its and condition', function() {
 				var condition = {
 				  where: {
@@ -42,9 +40,9 @@ describe('findAllTest', function() {
 				var result = doyok.findAllNotUsePromise(condition, json);
 				assert.equal(true, utilities.equals(expectedResult, result));
 			});
-		});
+	});
 
-		describe('or condition', function() {
+	describe('or condition', function() {
 			it('should return list of json by its or condition', function() {
 				var condition = {
 					where: {
@@ -63,9 +61,9 @@ describe('findAllTest', function() {
 				var result = doyok.findAllNotUsePromise(condition, json);
 				assert.equal(true, utilities.equals(expectedResult, result));
 			});
-		});
+	});
 
-		describe('or and condition', function () {
+	describe('or and condition', function () {
 			it('should return list of json by its and, or condition', function() {
 				var condition = {
 					where: {
@@ -117,9 +115,9 @@ describe('findAllTest', function() {
 				var result = doyok.findAllNotUsePromise(condition, json);
 				assert.equal(true, utilities.equals(expectedResult, result));
 			});
-		});
+	});
 
-		describe('limit condition', function () {
+	describe('limit condition', function () {
 			it('should return list of json based on the number of limit that defined in condition', function() {
 				describe('single limit condition', function () {
 					var condition = {
@@ -187,9 +185,9 @@ describe('findAllTest', function() {
 				});
 
 			});
-		});
+	});
 
-		describe('offset condition', function () {
+	describe('offset condition', function () {
 			it('should return list of json starting from the offset that defined in condition', function() {
 
 				
@@ -315,9 +313,9 @@ describe('findAllTest', function() {
 					
 				});
 			})
-		});
+	});
 
-		describe('order condition', function() {
+	describe('order condition', function() {
 			it('should return ordered json', function() {
 				
 				describe('single order condition', function() {
@@ -506,15 +504,193 @@ describe('findAllTest', function() {
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 			});
-		});
-	//});
+	});
 });
 
 
-describe('DeleteAllTest', function() {
+describe('deleteAllTest', function() {
 	describe('and condition', function() {
 		it('should return list of json by its and condition', function() {
+			var sampleData = [
+			   {
+			   	   id: 1, name: 'Jonathan', age: 22
+			   },
+			   {
+			   	   id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 3, name: 'Kevin', age: 10
+			   },
+			   {
+			       id: 4, name: 'Endah', age: 22
+			   }
+			];
 
+			var condition = {
+				where: {
+					name: 'Kevin'
+				}
+			};
+
+			var expectedResult = [
+				{
+			   	   id: 1, name: 'Jonathan', age: 22
+			   	},
+			   	{
+			       id: 4, name: 'Endah', age: 22
+			   	}
+			];
+
+			var result = doyok.deleteAllNotUsePromise(condition, sampleData);
+			assert.equal(true, utilities.equals(expectedResult, result));
+		});
+	});
+
+	describe('or condition', function() {
+		it('should return list of json by its or condition', function() {
+			var sampleData = [
+			   {
+			   	   id: 1, name: 'Jonathan', age: 22
+			   },
+			   {
+			   	   id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 3, name: 'Kevin', age: 10
+			   },
+			   {
+			       id: 4, name: 'Endah', age: 22
+			   }
+			];
+
+			var condition = {
+				where: {
+					name: 'Kevin',
+					or: [
+						{
+							name: 'Endah'
+						}
+					]
+				}
+			};
+
+			var expectedResult = [
+				{
+			   	   id: 1, name: 'Jonathan', age: 22
+			   	}
+			];
+
+			var result = doyok.deleteAllNotUsePromise(condition, sampleData);
+			assert.equal(true, utilities.equals(expectedResult, result));
+		});
+	});
+
+	describe('or and condition', function() {
+		it('should return list of json by it aor, and condition', function() {
+			var sampleData = [
+			   {
+			   	   id: 1, name: 'Jonathan', age: 22
+			   },
+			   {
+			   	   id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 3, name: 'Kevin', age: 10
+			   },
+			   {
+			       id: 4, name: 'Endah', age: 22
+			   }
+			];
+
+			var condition = {
+				where: {
+					name: 'Kevin',
+					or: [
+						{
+							name: 'Endah', age: 40
+						},
+						{
+							name: 'Endah', id: 4
+						},
+						{
+							name: 'Endah'
+						}
+					]
+				}
+			};
+
+			var expectedResult = [
+				{
+			   	   id: 1, name: 'Jonathan', age: 22
+			   	}
+			];
+
+			var result = doyok.deleteAllNotUsePromise(condition, sampleData);
+			assert.equal(true, utilities.equals(expectedResult, result));
+		});
+	});
+});
+
+describe('updateAllTest', function() {
+	describe('and condition', function() {
+		it('should return list of json by its and condition', function() {
+			var sampleData = [
+			   {
+			   	   id: 1, name: 'Jonathan', age: 22
+			   },
+			   {
+			   	   id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 3, name: 'Kevin', age: 10
+			   },
+			   {
+			       id: 4, name: 'Endah', age: 22
+			   }
+			];
+
+			var condition = {
+				where: {
+					name: 'Kevin'
+				}
+			};
+
+			var setterData = {
+				name: 'Mark'
+			};
+
+			var expectedResult = [
+				{
+			   	   id: 1, name: 'Jonathan', age: 22
+			   	},
+			   	{
+			   	   id: 2, name: 'Mark', age: 20
+			   	},
+			   	{
+			       id: 2, name: 'Mark', age: 20
+			   	},
+			   	{
+			       id: 3, name: 'Mark', age: 10
+			   	},
+			   	{
+			       id: 4, name: 'Endah', age: 22
+			   	}
+			];
+
+			var result = doyok.updateAllNotUsePromise(setterData, condition, sampleData);
+			assert.equal(true, utilities.equals(expectedResult, result));
 		});
 	});
 });
