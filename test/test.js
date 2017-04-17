@@ -693,4 +693,119 @@ describe('updateAllTest', function() {
 			assert.equal(true, utilities.equals(expectedResult, result));
 		});
 	});
+
+	describe('or condition', function() {
+		it('should return list of json by its or condition', function() {
+			var sampleData = [
+			   {
+			   	   id: 1, name: 'Jonathan', age: 22
+			   },
+			   {
+			   	   id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 3, name: 'Kevin', age: 10
+			   },
+			   {
+			       id: 4, name: 'Endah', age: 22
+			   }
+			];
+
+			var condition = {
+				where: {
+					or: [
+						{
+							name: 'Kevin'
+						}
+					]
+				}
+			};
+
+			var setterData = {
+				name: 'Mark'
+			};
+
+			var expectedResult = [
+				{
+			   	   id: 1, name: 'Jonathan', age: 22
+			   	},
+			   	{
+			   	   id: 2, name: 'Mark', age: 20
+			   	},
+			   	{
+			       id: 2, name: 'Mark', age: 20
+			   	},
+			   	{
+			       id: 3, name: 'Mark', age: 10
+			   	},
+			   	{
+			       id: 4, name: 'Endah', age: 22
+			   	}
+			];
+
+			var result = doyok.updateAllNotUsePromise(setterData, condition, sampleData);
+			assert.equal(true, utilities.equals(expectedResult, result));
+		});
+	});
+
+	describe('and or condition', function() {
+		it('should return list of json by its and, or condition', function() {
+			var sampleData = [
+			   {
+			   	   id: 1, name: 'Jonathan', age: 22
+			   },
+			   {
+			   	   id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 2, name: 'Kevin', age: 20
+			   },
+			   {
+			       id: 3, name: 'Kevin', age: 10
+			   },
+			   {
+			       id: 4, name: 'Endah', age: 22
+			   }
+			];
+
+			var condition = {
+				where: {
+					name: 'Endah',
+					or: [
+						{
+							name: 'Kevin', age: 100
+						}
+					]
+				}
+			};
+
+			var setterData = {
+				name: 'Mark'
+			};
+
+			var expectedResult = [
+				{
+			   	   id: 1, name: 'Jonathan', age: 22
+			   	},
+			   	{
+			   	   id: 2, name: 'Kevin', age: 20
+			   	},
+			   	{
+			       id: 2, name: 'Kevin', age: 20
+			   	},
+			   	{
+			       id: 3, name: 'Kevin', age: 10
+			   	},
+			   	{
+			       id: 4, name: 'Mark', age: 22
+			   	}
+			];
+
+			var result = doyok.updateAllNotUsePromise(setterData, condition, sampleData);
+			assert.equal(true, utilities.equals(expectedResult, result));
+		});
+	});
 });
