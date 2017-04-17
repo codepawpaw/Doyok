@@ -37,7 +37,7 @@ describe('findAllTest', function() {
 				        id: 2, name: 'Kevin', age: 20
 				   	}
 				];
-				var result = doyok.findAllNotUsePromise(condition, json);
+				var result = doyok.find(condition, json);
 				assert.equal(true, utilities.equals(expectedResult, result));
 			});
 	});
@@ -58,7 +58,7 @@ describe('findAllTest', function() {
 				        id: 3, name: 'Kevin', age: 10
 				    }
 				];
-				var result = doyok.findAllNotUsePromise(condition, json);
+				var result = doyok.find(condition, json);
 				assert.equal(true, utilities.equals(expectedResult, result));
 			});
 	});
@@ -91,7 +91,7 @@ describe('findAllTest', function() {
 				    }
 				];
 
-				var result = doyok.findAllNotUsePromise(condition, json);
+				var result = doyok.find(condition, json);
 				assert.equal(true, utilities.equals(expectedResult, result));
 
 
@@ -112,7 +112,7 @@ describe('findAllTest', function() {
 				    { id: 3, name: 'Kevin', age: 10 }
 				];
 
-				var result = doyok.findAllNotUsePromise(condition, json);
+				var result = doyok.find(condition, json);
 				assert.equal(true, utilities.equals(expectedResult, result));
 			});
 	});
@@ -133,7 +133,7 @@ describe('findAllTest', function() {
 					    }
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 
@@ -154,7 +154,7 @@ describe('findAllTest', function() {
    						}
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 
@@ -180,7 +180,7 @@ describe('findAllTest', function() {
    						}
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 
@@ -208,7 +208,7 @@ describe('findAllTest', function() {
 	   						}
 						];
 
-						var result = doyok.findAllNotUsePromise(condition, json);
+						var result = doyok.find(condition, json);
 						assert.equal(true, utilities.equals(expectedResult, result));
 					
 				});
@@ -229,7 +229,7 @@ describe('findAllTest', function() {
 	   						}
 						];
 
-						var result = doyok.findAllNotUsePromise(condition, json);
+						var result = doyok.find(condition, json);
 						assert.equal(true, utilities.equals(expectedResult, result));
 					
 				})
@@ -257,7 +257,7 @@ describe('findAllTest', function() {
 	   						}
 						];
 
-						var result = doyok.findAllNotUsePromise(condition, json);
+						var result = doyok.find(condition, json);
 						assert.equal(true, utilities.equals(expectedResult, result));
 					
 				});
@@ -278,7 +278,7 @@ describe('findAllTest', function() {
 	   						}
 						];
 
-						var result = doyok.findAllNotUsePromise(condition, json);
+						var result = doyok.find(condition, json);
 						assert.equal(true, utilities.equals(expectedResult, result));
 					
 				});
@@ -308,7 +308,7 @@ describe('findAllTest', function() {
 						    }
 						];
 
-						var result = doyok.findAllNotUsePromise(condition, json);
+						var result = doyok.find(condition, json);
 						assert.equal(true, utilities.equals(expectedResult, result));
 					
 				});
@@ -343,7 +343,7 @@ describe('findAllTest', function() {
 					    }
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 
@@ -366,7 +366,7 @@ describe('findAllTest', function() {
 					    }
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 
@@ -393,7 +393,7 @@ describe('findAllTest', function() {
 					    }
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 
 				});
@@ -412,7 +412,7 @@ describe('findAllTest', function() {
 						}
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 
@@ -436,7 +436,7 @@ describe('findAllTest', function() {
    						}
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 
@@ -466,7 +466,7 @@ describe('findAllTest', function() {
    							}
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 
@@ -500,7 +500,7 @@ describe('findAllTest', function() {
    						}
 					];
 
-					var result = doyok.findAllNotUsePromise(condition, json);
+					var result = doyok.find(condition, json);
 					assert.equal(true, utilities.equals(expectedResult, result));
 				});
 			});
@@ -544,7 +544,7 @@ describe('deleteAllTest', function() {
 			   	}
 			];
 
-			var result = doyok.deleteAllNotUsePromise(condition, sampleData);
+			var result = doyok.delete(condition, sampleData);
 			assert.equal(true, utilities.equals(expectedResult, result));
 		});
 	});
@@ -586,7 +586,7 @@ describe('deleteAllTest', function() {
 			   	}
 			];
 
-			var result = doyok.deleteAllNotUsePromise(condition, sampleData);
+			var result = doyok.delete(condition, sampleData);
 			assert.equal(true, utilities.equals(expectedResult, result));
 		});
 	});
@@ -634,7 +634,7 @@ describe('deleteAllTest', function() {
 			   	}
 			];
 
-			var result = doyok.deleteAllNotUsePromise(condition, sampleData);
+			var result = doyok.delete(condition, sampleData);
 			assert.equal(true, utilities.equals(expectedResult, result));
 		});
 	});
@@ -689,7 +689,7 @@ describe('updateAllTest', function() {
 			   	}
 			];
 
-			var result = doyok.updateAllNotUsePromise(setterData, condition, sampleData);
+			var result = doyok.update(setterData, condition, sampleData);
 			assert.equal(true, utilities.equals(expectedResult, result));
 		});
 	});
@@ -746,7 +746,7 @@ describe('updateAllTest', function() {
 			   	}
 			];
 
-			var result = doyok.updateAllNotUsePromise(setterData, condition, sampleData);
+			var result = doyok.update(setterData, condition, sampleData);
 			assert.equal(true, utilities.equals(expectedResult, result));
 		});
 	});
@@ -804,7 +804,7 @@ describe('updateAllTest', function() {
 			   	}
 			];
 
-			var result = doyok.updateAllNotUsePromise(setterData, condition, sampleData);
+			var result = doyok.update(setterData, condition, sampleData);
 			assert.equal(true, utilities.equals(expectedResult, result));
 		});
 	});

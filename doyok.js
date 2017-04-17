@@ -343,7 +343,7 @@ var q = require('q');
 	};
 
 	// Return a list 
-	function findAllNotUsePromise(params, object){
+	function find(params, object){
 		var json = object;
 
 		var whereConditions = {};
@@ -364,7 +364,7 @@ var q = require('q');
 
 		return json;
 	};
-	exports.findAllNotUsePromise = findAllNotUsePromise;
+	exports.find = find;
 
 	doyok.deleteAll = function(params, object){
 		var qdef = q.defer();
@@ -379,14 +379,13 @@ var q = require('q');
 		}
 
 		json = (!isEmpty(whereConditions)) ? deleteByCondition(json, whereConditions) : json
-		//if(!isEmpty(whereConditions)) json = deleteByCondition(json, whereConditions);
 
 		qdef.resolve(json);
 
 		return (qdef.promise);
 	};
 
-	function deleteAllNotUsePromise(params, object){
+	function remove(params, object){
 		var json = object;
 		var whereConditions = {};
 
@@ -400,7 +399,7 @@ var q = require('q');
 
 		return json;
 	};
-	exports.deleteAllNotUsePromise = deleteAllNotUsePromise;
+	exports.delete = remove;
 
 	doyok.updateAll = function(setter, params, object){
 		var qdef = q.defer();
@@ -421,7 +420,7 @@ var q = require('q');
 		return (qdef.promise);
 	};
 
-	function updateAllNotUsePromise(setter, params, object){
+	function update(setter, params, object){
 		var json = object;
 
 		var whereConditions = {};
@@ -437,7 +436,7 @@ var q = require('q');
 
 		return json;
 	};
-	exports.updateAllNotUsePromise = updateAllNotUsePromise;
+	exports.update = update;
 
 	// Extend a given object with all the properties in passed-in object(s).
   	doyok.extend = function(obj) {
