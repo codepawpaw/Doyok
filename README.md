@@ -5,7 +5,7 @@ Retrieves values from JSON for data binding. Using commands like sequelize.
 
 `npm install doyok`
 
-Will install the latest version of doyok (currently 1.0).
+Will install the latest version of doyok (currently 3.0).
 
 ## Features
 
