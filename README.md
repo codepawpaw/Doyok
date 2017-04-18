@@ -176,7 +176,7 @@ Will install the latest version of doyok (currently 3.0).
 
 	};
 
-	doyok.updateAll(condition, json).then(function(result) {
+	doyok.updateAll(setter, condition, json).then(function(result) {
 
 	   console.log(result);                                                   
 
