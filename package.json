@@ -1,6 +1,6 @@
 {
   "name": "doyok",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Retrieves values from JSON for data binding. Using commands like sequelize.",
   "main": "doyok.js",
   "scripts": {
