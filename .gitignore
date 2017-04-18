@@ -22,5 +22,4 @@ pids
 
 # dotenv environment variables file
 .env
-.nyc_output/
-node_modules/.cache/																	
+.nyc_output/																	
